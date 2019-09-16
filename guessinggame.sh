@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
 
-echo "[Welcome to Guessing game v0.1]"
+echo "[The Guessing game]"
 
-function ask {
+function question {
 	echo "Please enter the number of files in the current directory:"
-	read guess
-    files=$(ls -1 | wc -l)
+	read answer
+    no_of_files=$(ls -1 | wc -l)
 }
 
-ask
+question
 
-while [[ $guess -ne $files ]]
+while [[ $answer -ne $no_of_files ]]
 do
-	if [[ $guess -lt $files ]] 
+	if [[ $answer -lt $no_of_files ]] 
 	then
-		echo "Too low."
+		echo "Very low."
 	else
-		echo "Too high."
+		echo "Very high."
 	fi
-	ask
+	question
 done
 
-echo "Well done! It is the correct answer, here is the list of files:"
+echo "Hurrey! You got the correct answer, here is the list of files:"
 echo "---" && ls -1
